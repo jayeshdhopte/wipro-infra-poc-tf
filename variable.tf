@@ -35,7 +35,7 @@ variable "virtual_network_name" {
  
 variable "vnet_address_prefix" {
 
-  type = list(string)
+  type = string
 
 }
  
@@ -47,7 +47,7 @@ variable "subnet_name" {
  
 variable "subnet_address_prefix" {
 
-  type = list(string)
+  type = string
 
 }
  
@@ -143,7 +143,7 @@ variable "image_name" {
 variable "image_version" {
 
   type    = string
-  
+
   default = "1.0.0" # Hardcoded for testing
 }
 
