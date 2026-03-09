@@ -124,4 +124,27 @@ variable "os_disk_storage_type" {
   default = "Standard_LRS"
 
 }
+
+
+variable "gallery_name" {
+
+  type    = string
+
+  default = "my_test_gallery" # Hardcoded for testing
+}
+
+variable "image_name" {
+
+  type    = string
+
+  default = "my_test_image" # Hardcoded for testing
+}
+
+variable "image_version" {
+
+  type    = string
+  
+  default = "1.0.0" # Hardcoded for testing
+}
+
  
