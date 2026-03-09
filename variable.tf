@@ -1,0 +1,12 @@
+variable "environment" { type = string }
+variable "os_publisher" { type = string }
+variable "ram" { type = string }
+variable "resource_group" { type = string }
+variable "resource_group_region" { type = string }
+variable "subnet_address_prefix" { type = string }
+variable "subnet_name" { type = string }
+variable "subscription_id" { type = string }
+variable "vcpus" { type = string }
+variable "vnet_address_prefix" { type = string }
+variable "virtual_machine_name" { type = string }
+variable "virtual_network_name" { type = string }
