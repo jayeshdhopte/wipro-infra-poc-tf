@@ -14,20 +14,20 @@ variable "environment" {
 
 }
  
-variable "resource_group_name" {
+variable "resource_group" {
 
   type = string
 
 }
  
-variable "location" {
+variable "resource_group_region" {
 
   type = string
 
 }
  
  
-variable "vnet_name" {
+variable "virtual_network_name" {
 
   type = string
 
@@ -81,7 +81,7 @@ variable "private_ip_address" {
 
 }
  
-variable "vm_name" {
+variable "virtual_machine_name" {
 
   type = string
 
