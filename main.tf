@@ -89,6 +89,4 @@ resource "azurerm_linux_virtual_machine" "vm" {
     storage_account_type = var.os_disk_storage_type
   }
 
-  # Note: Ensure gallery_name, image_name, and image_version are defined in variables.tf
-  source_image_id = "/subscriptions/${var.subscription_id}/resourceGroups/${var.resource_group}/providers/Microsoft.Compute/galleries/${var.gallery_name}/images/${var.image_name}/versions/${var.image_version}"
 }
