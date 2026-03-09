@@ -89,6 +89,7 @@ variable "virtual_machine_name" {
 }
  
 variable "vm_size" {
+    default = "Standard_B1s"
 
   type = string
 
