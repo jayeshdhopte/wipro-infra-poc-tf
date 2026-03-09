@@ -33,7 +33,7 @@ variable "virtual_network_name" {
 
 }
  
-variable "address_space" {
+variable "vnet_address_prefix" {
 
   type = list(string)
 
@@ -45,13 +45,14 @@ variable "subnet_name" {
 
 }
  
-variable "subnet_prefix" {
+variable "subnet_address_prefix" {
 
   type = list(string)
 
 }
  
 variable "nic_name" {
+    default = "testnic"
 
   type = string
 
@@ -101,6 +102,7 @@ variable "admin_username" {
 }
  
 variable "ssh_public_key_path" {
+    default = "file("${path.module}/ssh/id_rsa.pub")"
 
   type = string
 
