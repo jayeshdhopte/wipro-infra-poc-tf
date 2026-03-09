@@ -88,5 +88,5 @@ resource "azurerm_linux_virtual_machine" "vm" {
     caching              = var.os_disk_caching
     storage_account_type = var.os_disk_storage_type
   }
-
+source_image_id = "/subscriptions/${var.subscription_id}/resourceGroups/${var.resource_group_name}/providers/Microsoft.Compute/galleries/${var.gallery_name}/images/${var.image_name}/versions/${var.image_version}"
 }
