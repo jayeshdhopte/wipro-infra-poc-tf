@@ -23,7 +23,7 @@ variable "resource_group" {
 variable "resource_group_region" {
 
   type = string
-
+default = "australiaeast"
 }
  
  
