@@ -6,7 +6,16 @@ terraform {
     }
   }
 }
- 
+ terraform { 
+  cloud { 
+    
+    organization = "jayesh-d-org" 
+
+    workspaces { 
+      name = "RITM0010049" 
+    } 
+  } 
+}
 provider "azurerm" {
   features {}
   # The subscription ID comes from your ServiceNow payload
