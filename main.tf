@@ -1,7 +1,4 @@
-data "azurerm_resource_group" "existing" {
-  count = var.rg_choice == "exists" ? 1 : 0
-  name  = var.resource_group
-}
+
 # 1. Resource Group
 resource "azurerm_resource_group" "rg" {
   name     = var.resource_group
