@@ -109,7 +109,7 @@ variable "ssh_public_key_path" {
 
 }
  
-variable "os_disk_caching" {
+variable "caching" {
 
   type    = string
 
@@ -117,7 +117,7 @@ variable "os_disk_caching" {
 
 }
  
-variable "os_disk_storage_type" {
+variable "storage_account_type" {
 
   type    = string
 
@@ -146,5 +146,15 @@ variable "image_version" {
 
   default = "1.0.0" # Hardcoded for testing
 }
+variable "image_sku"{
+  type = string
 
+}
+variable "operating_system_publisher"{
+  type =string
+}
+
+variable "image_offer"{
+  type = string
+}
  
