@@ -75,11 +75,6 @@ variable "admin_username" {
   type        = string
 }
 
-variable "ssh_public_key" {
-  description = "SSH public key for VM access"
-  type        = string
-}
-
 # ---------- Image Reference ----------
 variable "operating_system_publisher" {
   description = "Image publisher (e.g., RedHat)"
