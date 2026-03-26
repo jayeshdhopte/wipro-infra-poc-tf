@@ -1,10 +1,27 @@
 locals {
-  rg_name     = try(data.azurerm_resource_group.rg[0].name, azurerm_resource_group.rg[0].name)
-  rg_location = try(data.azurerm_resource_group.rg[0].location, azurerm_resource_group.rg[0].location)
+  rg_name = var.resource_group
 
-  vnet_name = try(data.azurerm_virtual_network.vnet[0].name, azurerm_virtual_network.vnet[0].name)
+  rg_location = (
+    length(data.azurerm_resource_group.rg) > 0
+    ? data.azurerm_resource_group.rg[0].location
+    : var.resource_group_region
+  )
 
-  subnet_id = try(data.azurerm_subnet.subnet[0].id, azurerm_subnet.subnet[0].id)
+  vnet_name = (
+    length(data.azurerm_virtual_network.vnet) > 0
+    ? data.azurerm_virtual_network.vnet[0].name
+    : var.virtual_network_name
+  )
 
-  nic_id = try(data.azurerm_network_interface.nic[0].id, azurerm_network_interface.nic[0].id)
+  subnet_id = (
+    length(data.azurerm_subnet.subnet) > 0
+    ? data.azurerm_subnet.subnet[0].id
+    : azurerm_subnet.subnet[0].id
+  )
+
+  nic_id = (
+    length(data.azurerm_network_interface.nic) > 0
+    ? data.azurerm_network_interface.nic[0].id
+    : azurerm_network_interface.nic[0].id
+  )
 }
