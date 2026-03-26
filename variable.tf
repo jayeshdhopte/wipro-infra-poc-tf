@@ -1,125 +1,125 @@
 variable "subscription_id" {
 
-  type        = string
+  type = string
 
   description = "Azure Subscription ID from ServiceNow"
 
 }
- 
+
 variable "environment" {
 
-  type        = string
+  type = string
 
   description = "Environment tag from ServiceNow"
 
 }
- 
+
 variable "resource_group" {
 
   type = string
 
 }
- 
+
 variable "resource_group_region" {
 
-  type = string
-default = "australiaeast"
+  type    = string
+  default = "australiaeast"
 }
- 
- 
+
+
 variable "virtual_network_name" {
 
   type = string
 
 }
- 
+
 variable "vnet_address_prefix" {
 
   type = string
 
 }
- 
+
 variable "subnet_name" {
 
   type = string
 
 }
- 
+
 variable "subnet_address_prefix" {
 
   type = string
 
 }
- 
+
 variable "nic_name" {
-    default = "testnic"
+  default = "testnic"
 
   type = string
 
 }
- 
+
 variable "ip_config_name" {
 
-  type    = string
+  type = string
 
   default = "internal"
 
 }
- 
+
 variable "private_ip_allocation" {
 
-  type    = string
+  type = string
 
   default = "Dynamic"
 
 }
- 
+
 variable "private_ip_address" {
 
-  type    = string
+  type = string
 
   default = null
 
 }
- 
+
 variable "virtual_machine_name" {
 
   type = string
 
 }
- 
+
 variable "vm_size" {
-    default = "Standard_B1s"
+  default = "Standard_B1s"
 
   type = string
 
 }
- 
+
 variable "admin_username" {
 
-  type = string
+  type    = string
   default = "azureuser"
 
 }
- 
+
 variable "ssh_public_key_path" {
-    default = "./ssh/id_rsa.pub"
+  default = "./ssh/id_rsa.pub"
 
   type = string
 
 }
- 
+
 variable "caching" {
 
-  type    = string
+  type = string
 
   default = "ReadWrite"
 
 }
- 
+
 variable "storage_account_type" {
 
-  type    = string
+  type = string
 
   default = "Standard_LRS"
 
@@ -128,33 +128,33 @@ variable "storage_account_type" {
 
 variable "gallery_name" {
 
-  type    = string
+  type = string
 
   default = "my_test_gallery" # Hardcoded for testing
 }
 
 variable "image_name" {
 
-  type    = string
+  type = string
 
   default = "my_test_image" # Hardcoded for testing
 }
 
 variable "image_version" {
 
-  type    = string
+  type = string
 
   default = "1.0.0" # Hardcoded for testing
 }
-variable "image_sku"{
+variable "image_sku" {
   type = string
 
 }
-variable "operating_system_publisher"{
-  type =string
+variable "operating_system_publisher" {
+  type = string
 }
 
-variable "image_offer"{
+variable "image_offer" {
   type = string
 }
  

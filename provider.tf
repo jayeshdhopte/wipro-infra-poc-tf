@@ -6,15 +6,15 @@ terraform {
     }
   }
 }
- terraform { 
-  cloud { 
-    
-    organization = "jayesh-d-org" 
+terraform {
+  cloud {
 
-    workspaces { 
-      name = "RITM0010049" 
-    } 
-  } 
+    organization = "jayesh-d-org"
+
+    workspaces {
+      name = "RITM0010049"
+    }
+  }
 }
 provider "azurerm" {
   features {}
