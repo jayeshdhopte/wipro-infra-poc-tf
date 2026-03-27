@@ -31,10 +31,10 @@ variable "resource_group_region" { type = string }
 # 4. VIRTUAL NETWORK & SUBNET
 # ==========================================
 variable "virtual_network_name" { type = string }
-variable "vnet_address_prefix" { type = list(string) }
+variable "vnet_address_prefix" { type = string, default = "10.0.0.0/16" }
 
 variable "subnet_name" { type = string }
-variable "subnet_address_prefix" { type = list(string) }
+variable "subnet_address_prefix" { type = string, default = "10.0.1.0/24" }
 
 # ==========================================
 # 5. NETWORK SECURITY GROUP & RULES
