@@ -85,9 +85,10 @@ resource "azurerm_network_security_rule" "rule" {
   count                       = lower(var.nsg_choice) != "exists" ? 1 : 0
   name                        = var.rule_name
   priority                    = var.rule_priority
-  direction                   = var.rule_direction
-  access                      = var.rule_access
-  protocol                    = var.rule_protocol
+  direction                   = title(lower(var.rule_direction))
+  access                      = title(lower(var.rule_access))
+  protocol                    = title(lower(var.rule_protocol))
+  
   source_port_range           = var.source_port_range
   destination_port_range      = var.destination_port_range
   source_address_prefix       = var.nsg_source_address_prefix
