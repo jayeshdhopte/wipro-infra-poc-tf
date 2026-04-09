@@ -105,6 +105,7 @@ resource "azurerm_public_ip" "pip" {
   name                = var.public_ip_name != "" ? var.public_ip_name : "${var.virtual_machine_name}-pip"
   location            = local.rg_location
   resource_group_name = local.rg_name
+  sku                 = "Standard"
   allocation_method   = title(var.pip_allocation_method)
 }
 
