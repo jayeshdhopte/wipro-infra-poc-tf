@@ -106,7 +106,7 @@ resource "azurerm_public_ip" "pip" {
   location            = local.rg_location
   resource_group_name = local.rg_name
   sku                 = "Standard"
-  allocation_method   = title(var.pip_allocation_method)
+  allocation_method   = title(lower(var.pip_allocation_method))
 }
 
 data "azurerm_network_interface" "nic" {
