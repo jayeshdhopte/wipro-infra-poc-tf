@@ -125,6 +125,8 @@ resource "azurerm_network_interface" "nic" {
     name                          = var.ip_config_name
     subnet_id                     = local.subnet_id
     private_ip_address_allocation = var.private_ip_allocation
+
+    private_ip_address            = var.private_ip_allocation == "Static" ? "10.0.1.10" : null
     
     # Only attach Public IP if the user selected it in ServiceNow
     public_ip_address_id          = var.public_ip_required == "true" ? azurerm_public_ip.pip[0].id : null
