@@ -167,7 +167,7 @@ resource "azurerm_linux_virtual_machine" "vm" {
   }
 
   os_disk {
-    caching              = var.os_disk_caching
+    caching              = lower(var.os_disk_caching) == "none" ? "None" : (lower(var.os_disk_caching) == "readonly" ? "ReadOnly" : "ReadWrite")
     storage_account_type = var.os_storage_account_type
   }
 }
