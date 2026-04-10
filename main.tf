@@ -160,7 +160,7 @@ resource "azurerm_virtual_machine" "vm" {
   name                  = var.virtual_machine_name
   location              = local.rg_location
   resource_group_name   = local.rg_name
-  size                  = var.vm_size
+  vm_size               = var.vm_size
   network_interface_ids = [local.nic_id]
 
 # FIX: In this resource, you use this block instead of 'source_image_id'
