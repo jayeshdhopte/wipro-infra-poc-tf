@@ -161,7 +161,6 @@ resource "azurerm_linux_virtual_machine" "vm" {
   location              = local.rg_location
   resource_group_name   = local.rg_name
   size                  = var.vm_size
-  admin_username        = var.admin_username
   network_interface_ids = [local.nic_id]
 
   source_image_id = data.azurerm_shared_image_version.custom.id
