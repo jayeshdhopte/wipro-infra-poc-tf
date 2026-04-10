@@ -104,7 +104,7 @@ data "azurerm_shared_image_version" "custom" {
   name                = var.shared_image_version     # e.g., "0.0.1"
   image_name          = var.image_definition_name    # e.g., "goldenimge"
   gallery_name        = var.shared_gallery           # e.g., "RHEL"
-  resource_group_name = "YOUR_GALLERY_RG_NAME"       # Replace with the RG where the Gallery lives
+  resource_group_name = local.rg_name      # Replace with the RG where the Gallery lives
 }
 
 # ==========================================
