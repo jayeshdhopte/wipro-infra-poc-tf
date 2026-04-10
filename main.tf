@@ -164,7 +164,6 @@ resource "azurerm_linux_virtual_machine" "vm" {
   admin_username        = var.admin_username
   network_interface_ids = [local.nic_id]
 
-  disable_password_authentication = true
   source_image_id = data.azurerm_shared_image_version.custom.id
 
   os_disk {
