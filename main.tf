@@ -167,11 +167,6 @@ resource "azurerm_linux_virtual_machine" "vm" {
   disable_password_authentication = true
   source_image_id = data.azurerm_shared_image_version.custom.id
 
-  admin_ssh_key {
-    username   = var.admin_username
-    public_key = file("${path.module}/ssh/id_rsa.pub")
-  }
-
   os_disk {
     caching              = lower(var.os_disk_caching) == "none" ? "None" : (lower(var.os_disk_caching) == "readonly" ? "ReadOnly" : "ReadWrite")
     storage_account_type = var.os_storage_account_type
