@@ -172,13 +172,6 @@ resource "azurerm_linux_virtual_machine" "vm" {
     public_key = file("${path.module}/ssh/id_rsa.pub")
   }
 
-  source_image_reference {
-    publisher = var.operating_system_publisher
-    offer     = var.image_offer
-    sku       = var.image_sku
-    version   = "latest"
-  }
-
   os_disk {
     caching              = lower(var.os_disk_caching) == "none" ? "None" : (lower(var.os_disk_caching) == "readonly" ? "ReadOnly" : "ReadWrite")
     storage_account_type = var.os_storage_account_type
