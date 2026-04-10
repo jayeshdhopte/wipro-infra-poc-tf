@@ -163,10 +163,19 @@ resource "azurerm_virtual_machine" "vm" {
   size                  = var.vm_size
   network_interface_ids = [local.nic_id]
 
-  source_image_id = data.azurerm_shared_image_version.custom.id
-
-  os_disk {
-    caching              = lower(var.os_disk_caching) == "none" ? "None" : (lower(var.os_disk_caching) == "readonly" ? "ReadOnly" : "ReadWrite")
-    storage_account_type = var.os_storage_account_type
+# FIX: In this resource, you use this block instead of 'source_image_id'
+  storage_image_reference {
+    id = data.azurerm_shared_image_version.custom.id
   }
+
+  # FIX: In this resource, it is 'storage_os_disk', not 'os_disk'
+  storage_os_disk {
+    name              = "${var.virtual_machine_name}-osdisk"
+    caching           = lower(var.os_disk_caching) == "none" ? "None" : (lower(var.os_disk_caching) == "readonly" ? "ReadOnly" : "ReadWrite")
+    create_option     = "FromImage"
+    managed_disk_type = var.os_storage_account_type
+  }
+
+  # IMPORTANT: We leave out the 'os_profile' block entirely 
+  # so that Azure treats this as a SPECIALIZED image.
 }
