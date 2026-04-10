@@ -98,6 +98,16 @@ resource "azurerm_network_security_rule" "rule" {
 }
 
 # ==========================================
+# 4.5 CUSTOM IMAGE DATA
+# ==========================================
+data "azurerm_shared_image_version" "custom" {
+  name                = var.shared_image_version     # e.g., "0.0.1"
+  image_name          = var.image_definition_name    # e.g., "goldenimge"
+  gallery_name        = var.shared_gallery           # e.g., "RHEL"
+  resource_group_name = "YOUR_GALLERY_RG_NAME"       # Replace with the RG where the Gallery lives
+}
+
+# ==========================================
 # 5. PUBLIC IP & NETWORK INTERFACE
 # ==========================================
 resource "azurerm_public_ip" "pip" {
@@ -106,7 +116,7 @@ resource "azurerm_public_ip" "pip" {
   location            = local.rg_location
   resource_group_name = local.rg_name
   sku                 = "Standard"
-  allocation_method   = title(lower(var.pip_allocation_method))
+  allocation_method    = "Static"
 }
 
 data "azurerm_network_interface" "nic" {
@@ -155,6 +165,7 @@ resource "azurerm_linux_virtual_machine" "vm" {
   network_interface_ids = [local.nic_id]
 
   disable_password_authentication = true
+  source_image_id = data.azurerm_shared_image_version.custom.id
 
   admin_ssh_key {
     username   = var.admin_username
