@@ -156,7 +156,7 @@ resource "azurerm_network_interface_security_group_association" "nic_nsg" {
 # ==========================================
 # 6. VIRTUAL MACHINE
 # ==========================================
-resource "azurerm_linux_virtual_machine" "vm" {
+resource "azurerm_virtual_machine" "vm" {
   name                  = var.virtual_machine_name
   location              = local.rg_location
   resource_group_name   = local.rg_name
